@@ -59,7 +59,7 @@ public class Main {
         return value < 0;
     }
     public static boolean isLeap(int date) {
-        return (date % 4 == 0) && ((date % 100 != 0) || (date % 400 == 0));
+        return (date % 4 == 0) && ((date % 100 != 0) || (date % 400 == 0)) && (date > 1584);
     }
     public static void transposition(int[] values) {
         for (int i = 0; i < values.length; i++) {
