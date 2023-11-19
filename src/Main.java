@@ -71,7 +71,7 @@ public class Main {
     }
     public static void fillingArray(int[] values) {
         for (int i = 0; i < values.length; i++) {
-            values[i] = i;
+            values[i] = i + 1;
         }
     }
     public static void multiplyArray(int[] values) {
