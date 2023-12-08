@@ -29,11 +29,6 @@ public class Main {
         System.out.println(summons(students));
         inputLogins();
 
-
-
-
-
-
     }
     private static long evenNumbers(List<Integer> integers) {
         return integers.stream().filter(integer -> (integer % 2) == 0).count();
