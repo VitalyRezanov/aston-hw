@@ -1,11 +1,7 @@
 package com.aston;
 
-import java.io.InputStream;
 import java.util.*;
-import java.util.function.*;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 public class Main {
     public static void main(String[] args) {
