@@ -34,6 +34,9 @@ public class Box {
         return (this.getWeight() - box.getWeight()) == 0;
     }
     public Box getBox() {
-        return new Box(this.apples, this.oranges);
+        Box box = new Box(this.apples, this.oranges);
+        this.apples = null;
+        this.oranges = null;
+        return box;
     }
 }
