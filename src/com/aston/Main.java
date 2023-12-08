@@ -2,10 +2,7 @@ package com.aston;
 
 import java.io.InputStream;
 import java.util.*;
-import java.util.function.BinaryOperator;
-import java.util.function.Consumer;
-import java.util.function.Function;
-import java.util.function.Predicate;
+import java.util.function.*;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -21,7 +18,7 @@ public class Main {
         System.out.println(getFirstElement(stringList));
         System.out.println(getLastElement(stringList));
 
-        System.out.println(Arrays.toString(orderStrings(List.of("f10", "f15", "f2", "f4", "f4"))));
+        System.out.println(orderStrings(List.of("f10", "f15", "f2", "f4", "f4")).toString());
         List<University.Student> students = List.of(
                 new University.Student("Дмитрий", 17, University.Gender.MAN),
                 new University.Student("Максим", 20, University.Gender.MAN),
@@ -57,28 +54,16 @@ public class Main {
         return collection.stream().reduce((s, s2) -> s2).orElse(null);
     }
 
-    private static String[] orderStrings(Collection<String> collection) {
-        String[] strings = new String[collection.size()];
-        strings =  collection.toArray(strings);
-        Arrays.sort(strings);
-        return strings;
+    private static List<String> orderStrings(Collection<String> collection) {
+        return collection.stream().sorted(Comparator.naturalOrder()).collect(Collectors.toList());
     }
 
     private static double getAverage(List<University.Student> students) {
-        List<Integer> integerList = students.stream()
+        return students.stream()
                 .filter(student -> student.getGender() == University.Gender.MAN)
-                .map(University.Student::getAge)
-                .collect(Collectors.toList());
-
-        Integer[] agesInt = new Integer[integerList.size()];
-
-        agesInt = integerList.toArray(agesInt);
-
-        int[] ints = Arrays.stream(agesInt).mapToInt(i->i).toArray();
-
-        IntStream intStream = IntStream.of(ints);
-
-        return intStream.average().getAsDouble();
+                .mapToInt(University.Student::getAge)
+                .average()
+                .getAsDouble();
     }
     private static List<University.Student> summons(List<University.Student> students) {
         return students.stream()
@@ -91,6 +76,7 @@ public class Main {
         while (!scanner.nextLine().isEmpty()) {
             logins.add(scanner.nextLine());
         }
+        scanner.close();
         logins.stream().filter(s -> s.charAt(0) == 'f').forEach(System.out::println);
     }
 
