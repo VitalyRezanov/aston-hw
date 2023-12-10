@@ -27,9 +27,9 @@ public class Main {
 
         TelephoneBook telephoneBook = new TelephoneBook();
 
-        telephoneBook.add("Rezanov", List.of("89067895401", "89067896101"));
-        telephoneBook.add("Kartapov", List.of("89063095402"));
-        telephoneBook.add("Astapov", List.of("89603095403", "89603097003", "89608935403"));
+        telephoneBook.add("Rezanov", "89067895401");
+        telephoneBook.add("Kartapov", "89063095402");
+        telephoneBook.add("Astapov", "89603095403");
 
         System.out.println(telephoneBook.get("Rezanov"));
         System.out.println(telephoneBook.get("Kartapov"));

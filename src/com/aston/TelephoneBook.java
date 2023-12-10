@@ -16,12 +16,14 @@ public class TelephoneBook {
     public String get(String family) {
         return book.get(family).toString();
     }
-    public void add(String family, List<String> numbers) {
+    public void add(String family, String numbers) {
         if (book.containsKey(family)) {
-            book.get(family).addAll(numbers);
+            book.get(family).add(numbers);
 
         } else {
-            book.put(family, new HashSet<>(numbers));
+            HashSet<String> hashSet = new HashSet<>();
+            hashSet.add(numbers);
+            book.put(family, hashSet);
         }
     }
 }
