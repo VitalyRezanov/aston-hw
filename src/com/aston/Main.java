@@ -58,7 +58,9 @@ public class Main {
     }
     private static List<University.Student> summons(List<University.Student> students) {
         return students.stream()
-                .filter(student -> student.getAge() > 18 && student.getAge()<27)
+                .filter(student -> student.getAge() > 18
+                        && student.getAge() < 27
+                        && student.getGender() == University.Gender.MAN)
                 .collect(Collectors.toList());
     }
     private static void inputLogins() {
