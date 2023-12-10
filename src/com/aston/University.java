@@ -1,24 +1,11 @@
 package com.aston;
 
-import java.util.List;
-
 public class University {
-
-//    private List<Student> students;
-
-
-
-//    public University(List<Student> students) {
-//        this.students = students;
-//    }
 
     public enum Gender {
         MAN,
         WOMAN
     }
-//    public List<Student> getStudents() {
-//        return students;
-//    }
     public static class Student {
         private final String name;
         private final Integer age;
